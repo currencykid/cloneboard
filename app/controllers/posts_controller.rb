@@ -17,9 +17,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: "Post created successfully"
+      flash[:success] = "We're on it!" 
+      redirect_to post_path(@post)  
     else 
-      render 'new'
+      flash[:success] = "Oops! Looks like you're missing something." 
+      redirect_to root_path  
     end 
   end 
 
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image)
+    params.require(:post).permit(:image, :category_id ) 
   end 
 
   def find_post
