@@ -4,7 +4,7 @@
     %meta{:charset => "utf-8"}
       %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-          %title= content_for?(:title) ? yield(:title) : "PaperFast" 
+          %title= content_for?(:title) ? yield(:title) : "paperfast"
           = csrf_meta_tags
           = stylesheet_link_tag "application", :media => "all"
           / For third-generation iPad with high-resolution Retina display:
@@ -39,7 +39,7 @@
         #logo.navbar-brand
           = link_to root_path do
             %i
-              PaperFast
+              paperfast
             %i.glyphicon.glyphicon-send 
       #navbar.navbar-collapse.collapse
         %ul.nav.navbar-nav.navbar-right

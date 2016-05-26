@@ -6,9 +6,13 @@
       .panel-footer
         .row
           .col-md-6
+            %p
+            This will be returned to you in: 
+            =@post.category.name
             %p.user
             Submitted by
             =@post.user.email
+
           .col-md-6
             .btn-group.pull-right
                 
