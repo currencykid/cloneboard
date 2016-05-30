@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end 
 
   def new
+    @cats = Post.select(:category_id).distinct 
     @post = current_user.posts.build
   end 
 

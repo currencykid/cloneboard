@@ -15,7 +15,7 @@
     how fast do you need this done? 
     %br
 
-    =f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }
+    = f.collection_radio_buttons :category_id, Category.all, :id, :name
 
 
   = f.button :submit, value: "do my homework",  class:"btn btn-success" 
