@@ -9,13 +9,13 @@
           %li= msg
 
 
-  .form-group
+  .form-group{style:'text-align:center;'}
     =f.input :image, input_html: {class:"form-control"}
-  %h3 
-    how fast do you need this done? 
-    %br
+    %h3.makered
+      turn around time 
+      %br
 
-    = f.collection_radio_buttons :category_id, Category.all, :id, :name
+      = f.collection_radio_buttons :category_id, Category.all, :id, :name, {:item_wrapper_class => "choosetime"}
 
 
-  = f.button :submit, value: "do my homework",  class:"btn btn-success" 
+    = f.button :submit, value: "do my homework",  class:"btn btn-success"  

@@ -18,8 +18,10 @@
 @import "bootstrap";
 
 
+$main: #FF0000; 
+
 body {
-  background: #651FFF;
+  background: #FFA500;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,13 +32,17 @@ nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .navbar-brand {
     a {
-      color: #BD1E23;
+      color: #FF0000;
       font-weight: bold;
       &:hover {
         text-decoration: none;
       }
     }
   }
+}
+
+.makered {
+  color: $main; 
 }
 
 #posts {
@@ -115,3 +121,20 @@ nav {
 textarea {
   min-height: 250px;
 }
+
+.choosetime{
+  font-weight: normal;
+  padding-right: 20px;
+
+  input[type=radio] {  
+    margin: 5px 5px 0px 5px;
+  }
+
+  label.radio {
+    margin-right: 20px;
+  }
+}
+ul
+{
+      list-style-type: none;
+    }
