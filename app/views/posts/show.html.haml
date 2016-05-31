@@ -16,6 +16,6 @@
           .col-md-6
             .btn-group.pull-right
                 
-              - if user_signed_in?
+              - if user_signed_in? && @post.user === current_user
                 = link_to "Edit", edit_post_path, class: "btn btn-default"
                 = link_to "Delete", post_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default" 

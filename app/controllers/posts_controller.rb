@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show,:edit,:update,:destroy, :upvote]
   before_action :authenticate_user!, except: [:index,:show] 
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all.order("created_at DESC")  
   end 
@@ -11,7 +13,7 @@ class PostsController < ApplicationController
   end 
 
   def show
-    
+
   end 
 
   def create
@@ -48,11 +50,18 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-  
+
   private
 
   def post_params
     params.require(:post).permit(:image, :category_id ) 
+  end 
+
+  def require_same_user
+    if current_user != @post.user
+      flash[:danger] = "Not authorized to edit this post"
+      redirect_to root_path
+    end
   end 
 
   def find_post
