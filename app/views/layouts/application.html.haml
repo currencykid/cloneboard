@@ -44,10 +44,10 @@
       #navbar.navbar-collapse.collapse
         %ul.nav.navbar-nav.navbar-right
           -if user_signed_in?
-            %li= link_to "Submit", new_post_path
+            %li= link_to "How it works", howitworks_path
             %li= link_to "Log out", destroy_user_session_path, method: :delete
           -else
-            %li= link_to "Submit", new_post_path
+            %li= link_to "How it works", howitworks_path
             %li= link_to "Log in", new_user_session_path
       / /.nav-collapse 
   .col-md-10.col-md-offset-1.col-xs-12
