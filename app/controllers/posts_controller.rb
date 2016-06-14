@@ -2,9 +2,11 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show,:edit,:update,:destroy, :upvote]
   before_action :authenticate_user!, except: [:index,:show] 
   before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :verify_is_admin, only: [:index] 
 
-  def index
-    @posts = Post.all.order("created_at DESC")  
+    def index
+
+      @posts = Post.all.order("created_at DESC")  
   end 
 
   def new
@@ -67,4 +69,8 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find(params[:id])
   end 
+
+  def verify_is_admin
+    (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+  end
 end
