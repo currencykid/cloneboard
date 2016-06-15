@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash[:success] = "We're on it!" 
+      flash[:success] = "We're on it! A confirmation containing payment instructions will be sent to your email. Please allow for up to 30 minutes for confirmation to arrive."
       redirect_to post_path(@post)  
     else 
       flash[:success] = "Oops! Looks like you're missing something." 

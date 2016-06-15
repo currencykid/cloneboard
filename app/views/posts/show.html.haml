@@ -1,14 +1,21 @@
 #post_show.row
   .col-md-8.col-md-offset-2
     .panel.panel-default
+      %br
+      %br
+      %strong.makered
+        REMEMBER THAT YOUR ASSIGNMENT WILL NOT BE STARTED UNTIL YOU COMPLETE CONFIRMATION. PLEASE CHECK YOUR EMAIL. 
+      %br
+      %br
       .panel-heading.post_image
         = image_tag @post.image.url
       .panel-footer
         .row
           .col-md-6
-            %p
-            This will be returned to you in: 
-            =@post.category.name
+            %strong
+              This will be returned to you  
+              =@post.category.name
+              after payment is made.
             %p.user
             Submitted by
             =@post.user.email
