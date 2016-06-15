@@ -21,7 +21,9 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'jquery-turbolinks' 
 gem 'aws-sdk', '< 2.0'
+gem 'bootswatch-rails'
 # Use jquery as the JavaScript library
+# bootswatch
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

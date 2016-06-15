@@ -14,16 +14,20 @@
  *= require_self
  */
 
+//Import bootstrap-sprockets
 @import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/darkly/variables";
+
+// Then bootstrap itself
 @import "bootstrap";
 
+// And finally bootswatch style itself
+@import "bootswatch/darkly/bootswatch"; 
 
 $main: #FF0000; 
 
-body {
-  background: #FFA500;
-  //background-image: url(spacebg.jpg);
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
@@ -33,7 +37,7 @@ nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .navbar-brand {
     a {
-      color: #FF0000;
+      color: #fff;
       font-weight: bold;
       &:hover {
         text-decoration: none;
