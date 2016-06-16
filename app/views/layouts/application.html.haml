@@ -50,8 +50,9 @@
             %li= link_to "How it works", howitworks_path
             %li= link_to "Log in", new_user_session_path
       / /.nav-collapse 
-  .col-md-10.col-md-offset-1.col-xs-12
+  .col-md-6.col-md-offset-3.col-xs-12
     #main_content
       - flash.each do |name, msg|
         = content_tag(:div, msg, class: "alert alert-info")
-      =yield 
+  .col-md-8.col-md-offset-2.col-xs-12
+    =yield 

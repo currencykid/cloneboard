@@ -10,6 +10,7 @@
 
 
   .form-group{style:'text-align:center;'}
+    =f.hidden_field :post, { :value => @post}
     =f.input :image, input_html: {class:"form-control"}
     %h4
       turn-around time 
@@ -19,3 +20,4 @@
 
 
     = f.button :submit, value: "do my homework",  class:"btn btn-success"  
+

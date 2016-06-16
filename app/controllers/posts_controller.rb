@@ -4,14 +4,13 @@ class PostsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :verify_is_admin, only: [:index] 
 
-    def index
-
-      @posts = Post.all.order("created_at DESC")  
+  def index
+    @posts = Post.all.order("created_at DESC")  
   end 
 
   def new
     @cats = Post.select(:category_id).distinct 
-    @post = current_user.posts.build
+    @post = Post.new
   end 
 
   def show
@@ -19,13 +18,14 @@ class PostsController < ApplicationController
   end 
 
   def create
-    @post = current_user.posts.build(post_params)
+     @post = Post.new(post_params)
+     @post.user = current_user 
 
     if @post.save
       flash[:success] = "We're on it! A confirmation containing payment instructions will be sent to your email. Please allow for up to 30 minutes for confirmation to arrive."
       redirect_to post_path(@post)  
     else 
-      flash[:success] = "Oops! Looks like you're missing something." 
+      flash[:success] = "Oops! Looks like you're missing something. Please try again." 
       redirect_to root_path  
     end 
   end 
@@ -52,8 +52,11 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-
   private
+
+  def find_post
+    @post = Post.find(params[:id])
+  end 
 
   def post_params
     params.require(:post).permit(:image, :category_id ) 
@@ -64,10 +67,6 @@ class PostsController < ApplicationController
       flash[:danger] = "Not authorized to edit this post"
       redirect_to root_path
     end
-  end 
-
-  def find_post
-    @post = Post.find(params[:id])
   end 
 
   def verify_is_admin
