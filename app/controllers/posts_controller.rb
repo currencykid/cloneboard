@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end 
 
   def post_params
-    params.require(:post).permit(:image, :category_id ) 
+    params.require(:post).permit(:image, :category_id, :referemail ) 
   end 
 
   def require_same_user
